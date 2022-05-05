@@ -61,11 +61,15 @@ export default function Login() {
               } */}
           <FormControl id="email">
             <FormLabel>Email address</FormLabel>
-            {/* <Input type="email" onChange={(event)=>{ setEmail(event.target.value)}}/> */}
+            <Input type="email" 
+            // onChange={(event)=>{ setEmail(event.target.value)}}
+            />
           </FormControl>
           <FormControl id="password">
             <FormLabel>Password</FormLabel>
-            {/* <Input type="password" onChange={(event)=>{ setPassword(event.target.value)}} /> */}
+            <Input type="password" 
+            // onChange={(event)=>{ setPassword(event.target.value)}}
+             />
           </FormControl>
           <Stack spacing={6}>
             <Stack
