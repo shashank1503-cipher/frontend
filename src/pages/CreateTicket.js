@@ -6,6 +6,7 @@ import {
   FormHelperText,
   FormLabel,
   Heading,
+  HStack,
   Input,
   Textarea,
   toast,
@@ -25,6 +26,9 @@ const CreateTicket = () => {
   const [name, setName] = useState('');
   const [authName, setAuthName] = useState('');
   const [description, setDescription] = useState('');
+  const [quantity, setQuantity] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [ticket, setTicket] = useState({});
 
   let handleSubmit = () => {
     if (name === '') {
@@ -36,14 +40,20 @@ const CreateTicket = () => {
     if (description === '') {
       setIsDescriptionError(true);
     } else {
-      setName('');
-      setAuthName('');
-      setDescription('');
+      const ticketInfo = {
+        eventName: name,
+        creator: authName,
+        description: description,
+        quantity: quantity,
+        price: price,
+      };
+      setTicket(ticketInfo);
+      console.log(ticket);
       setIsAuthorError(false);
       setIsDescriptionError(false);
       setIsNameError(false);
       setToast(true);
-      navigate('/');
+
     }
   };
   return (
@@ -144,6 +154,59 @@ const CreateTicket = () => {
           )}
         </FormControl>
       </Flex>
+      <HStack margin={'auto'} w="50%">
+        <Flex
+          w="100%"
+          boxShadow={'lg'}
+          padding={7}
+          direction={'column'}
+          bg={useColorModeValue('white', 'gray.700')}
+          borderRadius={'lg'}
+        >
+          <FormControl isInvalid={isDescriptionError}>
+            <FormLabel htmlFor="quantity">Quantity</FormLabel>
+            <Input
+              id="quantity"
+              type="number"
+              value={quantity}
+              onChange={e => {
+                setQuantity(e.target.value);
+              }}
+            />
+            {!isDescriptionError ? (
+              <FormHelperText>Add Number of tickets</FormHelperText>
+            ) : (
+              <FormErrorMessage>Please Enter Description 🥺 </FormErrorMessage>
+            )}
+          </FormControl>
+        </Flex>
+        <Flex
+          w="100%"
+          boxShadow={'lg'}
+          padding={7}
+          direction={'column'}
+          bg={useColorModeValue('white', 'gray.700')}
+          borderRadius={'lg'}
+        >
+          <FormControl isInvalid={isDescriptionError}>
+            <FormLabel htmlFor="price">Price</FormLabel>
+            <Input
+              id="price"
+              type="number"
+              value={price}
+              onChange={e => {
+                setPrice(e.target.value);
+              }}
+            />
+            {!isDescriptionError ? (
+              <FormHelperText>Price for 1 ticket</FormHelperText>
+            ) : (
+              <FormErrorMessage>Please Enter Price 🥺 </FormErrorMessage>
+            )}
+          </FormControl>
+        </Flex>
+      </HStack>
+
       <Flex margin={'auto'}>
         <Button
           variantColor="blue"

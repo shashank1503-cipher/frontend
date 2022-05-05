@@ -7,7 +7,7 @@ const Footer = () => {
     <Flex justifyContent={'space-between'} p={10}>
       <Logo fontSize={'3xl'} />
       <Text fontSize={'xl'} verticalAlign={'baseline'}>
-        Made with 💝 by Group 6
+        Made with 💝 by Group 2
       </Text>
     </Flex>
   );
