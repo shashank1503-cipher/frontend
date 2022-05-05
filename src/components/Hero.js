@@ -32,7 +32,7 @@ const Hero = () => {
         fontWeight="extrabold"
         textAlign="center"
       >
-        GRCTC
+        TIKIT
       </Text>
       <Text fontSize={'2xl'} align={'center'} justifyContent={'center'}>
         Create and Reserve Tickets

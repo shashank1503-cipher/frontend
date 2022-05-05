@@ -12,14 +12,14 @@ import CreateTicket from './pages/CreateTicket';
 import { CreateEventProvider } from './context/CreateEventContex';
 import ViewIndividualReservation from './pages/ViewIndividualReservation';
 // import PrivateRoute from './utils/PrivateRoute';
-// import { AuthProvider } from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <CreateEventProvider>
         <Router>
-          {/* <AuthProvider> */}
+          <AuthProvider>
           <Navbar />
           <Routes>
             <Route path="/createticket" element={<CreateTicket />} />
@@ -32,7 +32,7 @@ function App() {
               element={<ViewIndividualReservation />}
             />
           </Routes>
-          {/* </AuthProvider> */}
+          </AuthProvider>
         </Router>
       </CreateEventProvider>
     </ChakraProvider>
