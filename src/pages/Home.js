@@ -9,8 +9,8 @@ const Home = () => {
   useEffect(() => {
     if (Toast) {
       toast({
-        title: 'Account created.',
-        description: "We've created your account for you.",
+        title: 'Event created.',
+        description: "We've created your event for you.",
         status: 'success',
         duration: 9000,
         isClosable: true,
